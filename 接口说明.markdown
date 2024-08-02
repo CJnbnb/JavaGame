@@ -1,0 +1,90 @@
+# 图片检测接口说明
+# 都以json格式传输
+- /picture_import.html 方法：GET 参数：无 作用：返回渲染的picture_import网页
+- 样例：![alt text](image-1.png)
+- /picture.html 方法：Get 参数：无 返回：经过渲染的picture文件 return render_template('picture.html', data=result)，这里的data是json格式的信息，需要前端渲染
+样例：![alt text](image-2.png)
+样例：[
+    {
+        "date": "2024-07-31",
+        "detectionResult": "Clean",
+        "filename": "image.jpg",
+        "folder": "Picture",
+        "id": "3bde4f2e-a9c7-4191-af0b-ec5fb82ab17a",
+        "summary": "This is a sample document.",
+        "thumbnail": "image.jpg"
+    },
+    {
+        "date": "2024-07-31",
+        "detectionResult": "Clean",
+        "filename": "image.png",
+        "folder": "Picture",
+        "id": "a6e1ed1f-eda6-43a6-90a9-b751c09a10b4",
+        "summary": "This is a sample document.",
+        "thumbnail": "image.png"
+    },
+    {
+        "date": "2024-08-01",
+        "detectionResult": "Clean",
+        "filename": "id0_0001.mp4",
+        "folder": "Picture",
+        "id": "3125e910-e038-43d4-a7b0-9e0a1092f420",
+        "summary": "This is a sample document.",
+        "thumbnail": "id0_0001.mp4"
+    },
+    {
+        "date": "2024-08-01",
+        "detectionResult": "Clean",
+        "filename": "id0_0001.mp4",
+        "folder": "Picture",
+        "id": "8ff8c5e0-19cf-429c-8a58-d3c7703c1400",
+        "summary": "This is a sample document.",
+        "thumbnail": "id0_0001.mp4"
+    }
+]
+- /picture/upload 方法：POST 参数：{file:文件}（提交文件）
+样例：![alt text](image-3.png) 
+作用：上传文件
+- /picture/download 方法：GET 参数：{"id":"id号"} 返回值：图片文件（对应下载）
+样例：![alt text](image-4.png)
+- /picture/filter 方法：POST 参数{start_date:end_data"" } 返回值：符合条件的文件信息（对应选择日期刷新功能）
+![alt text](image-5.png)
+样例：[
+    {
+        "date": "2024-07-31",
+        "detectionResult": "Clean",
+        "filename": "image.jpg",
+        "folder": "Picture",
+        "id": "3bde4f2e-a9c7-4191-af0b-ec5fb82ab17a",
+        "summary": "This is a sample document.",
+        "thumbnail": "image.jpg"
+    },
+    {
+        "date": "2024-07-31",
+        "detectionResult": "Clean",
+        "filename": "image.png",
+        "folder": "Picture",
+        "id": "a6e1ed1f-eda6-43a6-90a9-b751c09a10b4",
+        "summary": "This is a sample document.",
+        "thumbnail": "image.png"
+    },
+    {
+        "date": "2024-08-01",
+        "detectionResult": "Clean",
+        "filename": "id0_0001.mp4",
+        "folder": "Picture",
+        "id": "3125e910-e038-43d4-a7b0-9e0a1092f420",
+        "summary": "This is a sample document.",
+        "thumbnail": "id0_0001.mp4"
+    },
+    {
+        "date": "2024-08-01",
+        "detectionResult": "Clean",
+        "filename": "id0_0001.mp4",
+        "folder": "Picture",
+        "id": "8ff8c5e0-19cf-429c-8a58-d3c7703c1400",
+        "summary": "This is a sample document.",
+        "thumbnail": "id0_0001.mp4"
+    }
+]
+- /picture/search 
